@@ -12,7 +12,9 @@ public class QuickSort<T extends Comparable> implements CallableSort<T> {
 
     @Override
     public SortResult<T> call() {
-        return new SortResult<>(NAME, sort(data));
+        long start = System.currentTimeMillis();
+        List<T> sortedData = sort(data);
+        return new SortResult<>(NAME, System.currentTimeMillis() - start, sortedData);
     }
 
     @Override
