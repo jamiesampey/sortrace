@@ -4,22 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MergeSort<T extends Comparable> implements CallableSort<T> {
-    private static final String NAME = "Merge Sort";
-    private final List<T> data;
+    private final String name = "Merge Sort";
+    private final List<T> rawData;
 
-    MergeSort(List<T> data) {
-        this.data = data;
+    MergeSort(List<T> rawData) {
+        this.rawData = rawData;
     }
 
     @Override
-    public SortResult<T> call() {
-        long start = System.currentTimeMillis();
-        List<T> sortedData = sort(data);
-        return new SortResult<>(NAME, System.currentTimeMillis() - start, sortedData);
+    public String getName() {
+        return name;
     }
 
     @Override
-    public List<T> sort(List<T> list) {
+    public List<T> getRawData() {
+        return rawData;
+    }
+
+    @Override
+    public List<T> sort(final List<T> list) {
         if (list.size() <= 1) return list;
 
         int middle = Math.floorDiv(list.size(), 2);

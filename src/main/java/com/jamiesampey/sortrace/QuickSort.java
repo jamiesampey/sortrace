@@ -3,22 +3,25 @@ package com.jamiesampey.sortrace;
 import java.util.List;
 
 public class QuickSort<T extends Comparable> implements CallableSort<T> {
-    private static final String NAME = "Quick Sort";
-    private final List<T> data;
+    private final String name = "Quick Sort";
+    private final List<T> rawData;
 
-    QuickSort(List<T> data) {
-        this.data = data;
+    QuickSort(List<T> rawData) {
+        this.rawData = rawData;
     }
 
     @Override
-    public SortResult<T> call() {
-        long start = System.currentTimeMillis();
-        List<T> sortedData = sort(data);
-        return new SortResult<>(NAME, System.currentTimeMillis() - start, sortedData);
+    public String getName() {
+        return name;
     }
 
     @Override
-    public List<T> sort(List<T> data) {
+    public List<T> getRawData() {
+        return rawData;
+    }
+
+    @Override
+    public List<T> sort(final List<T> data) {
         return sort(data, 0, data.size() - 1);
     }
 

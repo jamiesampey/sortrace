@@ -16,6 +16,7 @@ public class SortRace {
         final List<Integer> data = generateList(50000);
 
         SortRace sortRace = new SortRace(
+            new BubbleSort<>(new ArrayList<>(data)),
             new MergeSort<>(new ArrayList<>(data)),
             new QuickSort<>(new ArrayList<>(data))
         );
