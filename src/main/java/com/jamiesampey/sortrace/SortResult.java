@@ -28,6 +28,9 @@ class SortResult<T> {
 
     @Override
     public String toString() {
-        return String.format("%s ran in %d milliseconds", sortName, milliseconds);
+        final String time = milliseconds >= 1000 ?
+            String.format("%.2f seconds", new Float(milliseconds) / 1000) :
+            String.format("%d milliseconds", milliseconds);
+        return String.format("%s sorted %d elements in %s", sortName, sortedData.size(), time);
     }
 }
