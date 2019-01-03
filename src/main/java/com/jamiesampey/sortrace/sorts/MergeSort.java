@@ -1,4 +1,6 @@
-package com.jamiesampey.sortrace;
+package com.jamiesampey.sortrace.sorts;
+
+import com.jamiesampey.sortrace.CallableSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ public class MergeSort<T extends Comparable> implements CallableSort<T> {
     private final String name = "Merge Sort";
     private final List<T> rawData;
 
-    MergeSort(List<T> rawData) {
+    public MergeSort(List<T> rawData) {
         this.rawData = rawData;
     }
 

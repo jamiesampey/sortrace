@@ -1,4 +1,6 @@
-package com.jamiesampey.sortrace;
+package com.jamiesampey.sortrace.sorts;
+
+import com.jamiesampey.sortrace.CallableSort;
 
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class BubbleSort<T extends Comparable> implements CallableSort<T> {
 
     private final List<T> rawData;
 
-    BubbleSort(List<T> rawData) {
+    public BubbleSort(List<T> rawData) {
         this.rawData = rawData;
     }
 

@@ -2,13 +2,13 @@ package com.jamiesampey.sortrace;
 
 import java.util.List;
 
-class SortResult<T> {
+public class SortResult<T> {
 
     private final String sortName;
     private final long milliseconds;
     private final List<T> sortedData;
 
-    SortResult(String sortName, long milliseconds, List<T> sortedData) {
+    public SortResult(String sortName, long milliseconds, List<T> sortedData) {
         this.sortName = sortName;
         this.milliseconds = milliseconds;
         this.sortedData = sortedData;

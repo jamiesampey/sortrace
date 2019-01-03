@@ -1,4 +1,6 @@
-package com.jamiesampey.sortrace;
+package com.jamiesampey.sortrace.sorts;
+
+import com.jamiesampey.sortrace.CallableSort;
 
 import java.util.List;
 
@@ -6,7 +8,7 @@ public class QuickSort<T extends Comparable> implements CallableSort<T> {
     private final String name = "Quick Sort";
     private final List<T> rawData;
 
-    QuickSort(List<T> rawData) {
+    public QuickSort(List<T> rawData) {
         this.rawData = rawData;
     }
 

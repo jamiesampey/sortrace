@@ -1,4 +1,6 @@
-package com.jamiesampey.sortrace;
+package com.jamiesampey.sortrace.sorts;
+
+import com.jamiesampey.sortrace.CallableSort;
 
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class InsertionSort<T extends Comparable> implements CallableSort<T> {
 
     private final List<T> rawData;
 
-    InsertionSort(List<T> rawData) {
+    public InsertionSort(List<T> rawData) {
         this.rawData = rawData;
     }
 
@@ -24,7 +26,7 @@ public class InsertionSort<T extends Comparable> implements CallableSort<T> {
     @Override
     public List<T> sort(final List<T> list) {
         for (int i = 0; i < list.size(); i++) {
-            T value = list.get(i); // insert value down into the sorted (left) portion of the list
+            T value = list.get(i); // insert value at index i down into the sorted (left) portion of the list
 
             // 'bubble' value down (via index j) through the sorted portion of the list, which are indexes 0-->i
             for (int j = i - 1; j >= 0; j--) {

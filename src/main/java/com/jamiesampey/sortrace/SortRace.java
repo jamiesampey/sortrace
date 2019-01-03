@@ -1,10 +1,14 @@
 package com.jamiesampey.sortrace;
 
+import com.jamiesampey.sortrace.sorts.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
 public class SortRace {
+
+    private static final int NUM_ELEMENTS_TO_SORT = 50000;
 
     private final CallableSort[] sorters;
 
@@ -13,13 +17,14 @@ public class SortRace {
     }
 
     public static void main(String[] args) {
-        final List<Integer> data = generateList(50000);
+        final List<Integer> data = generateList(NUM_ELEMENTS_TO_SORT);
 
         SortRace sortRace = new SortRace(
             new InsertionSort<>(new ArrayList<>(data)),
             new BubbleSort<>(new ArrayList<>(data)),
             new MergeSort<>(new ArrayList<>(data)),
-            new QuickSort<>(new ArrayList<>(data))
+            new QuickSort<>(new ArrayList<>(data)),
+            new HeapSort<>(new ArrayList<>(data))
         );
 
         System.out.println(String.format("\n====================================="));
@@ -64,7 +69,7 @@ public class SortRace {
             if (isSorted(sortResult)) {
                 System.out.println(String.format("%d) %s", i, sortResult));
             } else {
-                System.out.println(String.format("%d) %s IS DISQUALIFIED!", i, sortResult.getSortName()));
+                System.out.println(String.format("%d) %s is DISQUALIFIED for failing to sort!", i, sortResult.getSortName()));
             }
 
             i++;
