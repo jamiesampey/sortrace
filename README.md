@@ -1,4 +1,4 @@
-SortRace is a small application to run a handful of popular sorting algorithms in parallel and see which ones complete fastest
+Run a handful of popular sorting algorithms in parallel to see which complete fastest
 
 The raw data for sorting can be any type implementing Comparable and the unsorted data set can be of any size (specified as a command line arg). Because many of the sorting algorithms sort in place, a separate copy of the unsorted list is given to each sorting thread to aviod thread interference.
 
