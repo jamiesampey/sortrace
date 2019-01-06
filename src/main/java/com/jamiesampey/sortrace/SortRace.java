@@ -8,8 +8,6 @@ import java.util.concurrent.*;
 
 public class SortRace {
 
-    private static final int NUM_ELEMENTS_TO_SORT = 50000;
-
     private final CallableSort[] sorters;
 
     SortRace(CallableSort ...sorters) {
@@ -17,7 +15,7 @@ public class SortRace {
     }
 
     public static void main(String[] args) {
-        final List<Integer> data = generateList(NUM_ELEMENTS_TO_SORT);
+        final List<Integer> data = generateIntegerList(Integer.valueOf(args[0]));
 
         SortRace sortRace = new SortRace(
             new InsertionSort<>(new ArrayList<>(data)),
@@ -34,7 +32,7 @@ public class SortRace {
         System.exit(0);
     }
 
-    private static List<Integer> generateList(int length) {
+    private static List<Integer> generateIntegerList(int length) {
         List<Integer> list = new ArrayList<>(length);
 
         for (int i = 0; i < length; i++) {
